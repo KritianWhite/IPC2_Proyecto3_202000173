@@ -17,19 +17,36 @@ class Mensaje:
     
     def obtenerMensaje(self):
         return self
+
     #CLASIFICA EN FUNCION SI SON MAYORES, MENORES IGUALES LOS MENSAJES POSITIVOS O NEGATIVOS
-    def clasificarMensaje (self):
+    def clasificarMensaje(self):
+        separador = ' '
+        x = separador.join(self.contenido)
+        #print(x)
         if self.positivos > self.negativos:
             self.tipo = 'POSITIVO'
+            print(self.tipo)
         elif self.negativos > self.positivos:
             self.tipo = 'NEGATIVO'
+            print(self.tipo)
         elif self.positivos == self.negativos:
-            self.tipo = 'NEUTRAL'
+            self.tipo = 'NEUTRO'
+            print(self.tipo)
 
-    def Contener (self):
+    def clasificarPor_Empresa(self):
+        separador = ' '
+        x = separador.join(self.contenido)
+        #print(x)
+        #if self.empresa in self.contenido:
+         #   self.empresa = self.contenido
+            #print(self.empresa)
+        return x
+
+    def Contener(self):
         for text in self.contenido:
             self.texto += text
             self.texto += " "
+            #print(self.texto)
 
 class servicio:
     def __init__(self, nombre):
@@ -38,6 +55,7 @@ class servicio:
         self.positivo = 0
         self.negativo = 0
         self.neutral = 0
+        self.alias = []
 
 class empresa:
     def __init__(self , nombre):
