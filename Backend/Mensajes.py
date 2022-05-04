@@ -28,13 +28,13 @@ class Mensaje:
         #print(x)
         if self.positivos > self.negativos:
             self.tipo = 'positivo'
-            #print('El mensaje fue ',self.tipo)
+            print('El mensaje fue ',self.tipo)
         elif self.negativos > self.positivos:
             self.tipo = 'negativo'
-            #print('El mensaje fue ',self.tipo)
+            print('El mensaje fue ',self.tipo)
         elif self.positivos == self.negativos:
             self.tipo = 'neutro'
-            #print('El mensaje fue ',self.tipo)
+            print('El mensaje fue ',self.tipo)
 
     def clasificarPor_Empresa(self):
         separador = ' '

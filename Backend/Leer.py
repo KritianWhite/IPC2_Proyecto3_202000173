@@ -61,7 +61,7 @@ def leerXML(xml):
         i = 0 #----> iterador
         for palabra in mensaje:
             if i == 3:
-                lugar = normalize(palabra)
+                lugar = normalize(palabra.replace(',',''))
                 #print('Lugar: '+lugar)
             elif i == 4:
                 fecha = palabra
@@ -122,27 +122,29 @@ def leerXML(xml):
                 #print(m.clasificarPor_Empresa())
                 #m.clasificarMensaje()
 
+            tmpServicios = []
             for servis in n['servicio']:
-                tmpServicios = []
                 m.servicio = normalize(servis['@nombre'])
                 tmpServicios.append(m.servicio)
-                print(tmpServicios)
-                
+                #print(tmpServicios)
                 try:
-                    if normalize(servis['@nombre']) in (tmpContenido):
+                    if normalize(servis['@nombre']) in (tmpServicios):
                         m.servicio = normalize(servis['@nombre'])
                         #tmpServicios.append(m.servicio)
                         #print(tmpServicios)
                         #print(normalize(servis['@nombre']))
-                    elif type(servis['alias']) == list:
-                        for a in servis['alias']:
-                            if normalize(a) in normalize(tmpContenido):
+                        if type(servis['alias']) == list:
+                            for a in servis['alias']:
+                                if normalize(a) in normalize(m.contenido):
+                                    #print(m.contenido)
+                                    m.servicio = normalize(servis['@nombre'])
+                                    print(m.servicio)     
+                        elif type(servis['alias']) == str:
+                            if normalize(servis['alias']) in m.contenido:
                                 m.servicio = normalize(servis['@nombre'])
-                                #print(m.servicio)     
-                    elif type(servis['alias']) == str:
-                        if normalize(servis['alias']) in tmpContenido:
-                            m.servicio = normalize(servis['@nombre'])
-                            #print(m.servicio)
+                                #print(m.servicio)
+                                #print(m.servicio)
+                                
                 except:
                     #if normalize(servis['@nombre'])in (tmpContenido):
                     #    print(normalize(servis['@nombre']))
@@ -153,17 +155,18 @@ def leerXML(xml):
 
                 
             #-----> impresión del mensaje como tal
-                    '''
-                    print('\nLugar: '+ m.lugar)
-                    print('Fecha: '+ m.fecha)
-                    print('Hora: '+ m.hora)
-                    print('Usuario: '+ m.user)
-                    print('Red social: '+ m.red)
-                    print('Empresa: ', q)
-                    print('Servicio: ', m.servicio)
-                    print(m.clasificarPor_Empresa())
-                    m.clasificarMensaje()'''
-                    break
+                    
+                print('\nLugar: '+ m.lugar)
+                print('Fecha: '+ m.fecha)
+                print('Hora: '+ m.hora)
+                print('Usuario: '+ m.user)
+                print('Red social: '+ m.red)
+                print('Empresa: ', q)
+                print('Servicio: ', m.servicio)
+                print(m.clasificarPor_Empresa())
+                m.clasificarMensaje()
+                break
+                    
                 
     return(mensajes)
 
@@ -320,7 +323,7 @@ class Analizar:
     def salidaXML(self):
         txt = '<?xml version="1.0"?>\n'
         txt += '<lista_respuestas>\n'
-        txt += '\t<respuesta\n>'
+        txt += '\t<respuesta>\n'
         txt += '\t\t<fecha> '+ str(datetime.now().date())  + ' </fecha>\n'
         txt += '\t\t\t<mensajes>\n'
         txt += '\t\t\t\t<total> '+ str(self.totalMensajes) + ' </total>\n'
