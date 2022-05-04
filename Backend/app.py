@@ -27,9 +27,9 @@ def rutaGuardar():
 def cargarMensajes():
     #file = (request.get_data())
     file = request.data.decode('utf-8')
-    doc = leerXML(file) #-----> doc returna una lista de objetos de los mensajes
-    #admin.recibirXML(file)
-    #admin.Sampar_a_Listas()
+    #doc = leerXML(file) #-----> doc returna una lista de objetos de los mensajes
+    admin.recibirXML(file)
+    admin.Sampar_a_Listas()
 
     return jsonify({'ok':True, 'msg':'Archivo XML leido correctamente'}), 200
 

@@ -71,7 +71,7 @@ def leerXML(xml):
                 #print('Hora: '+hora)
             elif i == 7:
                 usuario = normalize(palabra)
-                #print('Usuario: '+palabra)
+                #print('Usuario: '+usuario)
             elif i == 10:
                 redSocial = normalize(palabra)
                 #print('Red social: '+redSocial)
@@ -83,7 +83,7 @@ def leerXML(xml):
         #----->agregando datos extraídos a nuestro objeto
         newMensaje = Mensaje(lugar,fecha,hora, usuario, redSocial, tmpMensaje)
         mensajes.append(newMensaje)
-        #mensajes.sort(key = lambda mensaje: datetime.strptime(mensaje.fecha, '%d/%m/%Y'), reverse=True)
+        mensajes.sort(key = lambda mensaje: datetime.strptime(mensaje.fecha, '%d/%m/%Y'), reverse=True)
         #print(mensajes)
 
 
@@ -122,37 +122,49 @@ def leerXML(xml):
                 #print(m.clasificarPor_Empresa())
                 #m.clasificarMensaje()
 
-             
             for servis in n['servicio']:
+                tmpServicios = []
+                m.servicio = normalize(servis['@nombre'])
+                tmpServicios.append(m.servicio)
+                print(tmpServicios)
+                
                 try:
-                    if type(servis['alias']) == list:
+                    if normalize(servis['@nombre']) in (tmpContenido):
+                        m.servicio = normalize(servis['@nombre'])
+                        #tmpServicios.append(m.servicio)
+                        #print(tmpServicios)
+                        #print(normalize(servis['@nombre']))
+                    elif type(servis['alias']) == list:
                         for a in servis['alias']:
                             if normalize(a) in normalize(tmpContenido):
                                 m.servicio = normalize(servis['@nombre'])
-                                #print(m.servicio)
-                                
+                                #print(m.servicio)     
                     elif type(servis['alias']) == str:
                         if normalize(servis['alias']) in tmpContenido:
                             m.servicio = normalize(servis['@nombre'])
                             #print(m.servicio)
                 except:
-                    if normalize(servis['@nombre'])in (tmpContenido):
-                        m.servicio = normalize(servis['@nombre'])
+                    #if normalize(servis['@nombre'])in (tmpContenido):
+                    #    print(normalize(servis['@nombre']))
+                        #m.servicio = normalize(servis['@nombre'])
                         #print(m.servicio)
+                    pass
                         
 
-
+                
             #-----> impresión del mensaje como tal
-                    print('\nLugar: '+lugar)
-                    print('Fecha: '+fecha)
-                    print('Hora: '+hora)
-                    print('Usuario: '+palabra)
-                    print('Red social: '+redSocial)
+                    '''
+                    print('\nLugar: '+ m.lugar)
+                    print('Fecha: '+ m.fecha)
+                    print('Hora: '+ m.hora)
+                    print('Usuario: '+ m.user)
+                    print('Red social: '+ m.red)
                     print('Empresa: ', q)
                     print('Servicio: ', m.servicio)
                     print(m.clasificarPor_Empresa())
-                    m.clasificarMensaje()
+                    m.clasificarMensaje()'''
                     break
+                
     return(mensajes)
 
 
@@ -162,9 +174,9 @@ class Analizar:
         self.empresas = []
         self.xml = []
         self.totalMensajes = 0
-        self.mensajesPositivos = 0
-        self.mensajesNegativos = 0
-        self.mensajesNeutros = 0
+        self.mensajesPositivos = 0 #---> Total positivos
+        self.mensajesNegativos = 0 #---> Total negativos
+        self.mensajesNeutros = 0 #---> Total neutros
 
     def mensajeNuevo(self, Lugar, fecha, hora, usuario, redSocial, contenido):
         new = Mensaje(Lugar, fecha, hora, usuario, redSocial, contenido)
@@ -202,13 +214,7 @@ class Analizar:
             elif m.tipo == 'neutro':
                 self.mensajesNeutros += 1
                 #print('Cantidad de mensajes neutros: ',self.mensajesNeutros)
-
-            #----> ordenamiento de mensajes por fecha
-            m.fecha = datetime.strptime(m.fecha+" "+m.hora, '%d/%m/%Y %H:%M')
-        self.mensajes = sorted(self.mensajes, key=lambda x: x.fecha)
-        print('Fecha: ',m.fecha)
-        #print(type(self.mensajes))
-        #print('Total de mensajes: ', self.totalMensajes)
+        #print('Total mensajes: ', self.totalMensajes)
 
         #---> sumando la cantidad de mensajes sin importar su tipo
         for k in self.mensajes:
@@ -309,6 +315,7 @@ class Analizar:
                     tmp.servicios.append(nuevo)
                     self.empresas.append(tmp)
 
+        #print('Total Mensajes: ', self.totalMensajes)
                 
     def salidaXML(self):
         txt = '<?xml version="1.0"?>\n'

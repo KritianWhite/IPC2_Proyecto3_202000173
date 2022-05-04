@@ -1,10 +1,13 @@
+from platformdirs import user_cache_dir
+
+
 class Mensaje:
     def __init__(self,lugar,fecha,hora,user,red, contenido):
-        self.lugar=lugar
-        self.fecha=fecha
+        self.lugar = lugar
+        self.fecha = fecha
         self.hora = hora
-        self.user=user
-        self.red =red
+        self.user = user
+        self.red = red
         self.contenido = contenido
         #Las primeras son variables de declaracion normal, las otras se declaran con funciones especiales
         self.positivos = 0
@@ -25,13 +28,13 @@ class Mensaje:
         #print(x)
         if self.positivos > self.negativos:
             self.tipo = 'positivo'
-            print('El mensaje fue ',self.tipo)
+            #print('El mensaje fue ',self.tipo)
         elif self.negativos > self.positivos:
             self.tipo = 'negativo'
-            print('El mensaje fue ',self.tipo)
+            #print('El mensaje fue ',self.tipo)
         elif self.positivos == self.negativos:
             self.tipo = 'neutro'
-            print('El mensaje fue ',self.tipo)
+            #print('El mensaje fue ',self.tipo)
 
     def clasificarPor_Empresa(self):
         separador = ' '
