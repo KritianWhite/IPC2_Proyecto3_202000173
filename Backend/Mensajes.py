@@ -7,11 +7,11 @@ class Mensaje:
         self.red =red
         self.contenido = contenido
         #Las primeras son variables de declaracion normal, las otras se declaran con funciones especiales
+        self.positivos = 0
+        self.negativos = 0
         self.texto = ""
         self.empresa = 'None'
         self.servicio = 'None'
-        self.positivos = 0
-        self.negativos = 0
         self.tipo = 'None'
         self.Contener()
     
@@ -24,14 +24,14 @@ class Mensaje:
         x = separador.join(self.contenido)
         #print(x)
         if self.positivos > self.negativos:
-            self.tipo = 'POSITIVO'
-            print(self.tipo)
+            self.tipo = 'positivo'
+            print('El mensaje fue ',self.tipo)
         elif self.negativos > self.positivos:
-            self.tipo = 'NEGATIVO'
-            print(self.tipo)
+            self.tipo = 'negativo'
+            print('El mensaje fue ',self.tipo)
         elif self.positivos == self.negativos:
-            self.tipo = 'NEUTRO'
-            print(self.tipo)
+            self.tipo = 'neutro'
+            print('El mensaje fue ',self.tipo)
 
     def clasificarPor_Empresa(self):
         separador = ' '
@@ -54,7 +54,7 @@ class servicio:
         self.total = 0
         self.positivo = 0
         self.negativo = 0
-        self.neutral = 0
+        self.neutro = 0
         self.alias = []
 
 class empresa:
@@ -63,6 +63,6 @@ class empresa:
         self.total = 0
         self.positivo = 0
         self.negativo = 0
-        self.neutral = 0
+        self.neutro = 0
         self.servicios = []
 
