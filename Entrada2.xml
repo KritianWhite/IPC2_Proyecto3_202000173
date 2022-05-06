@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<solicitud_clasificacion>
+    <diccionario>
+        <sentimientos_positivos>
+            <palabra> bueno </palabra>
+            <palabra> excelente </palabra>
+            <palabra> cool </palabra>
+            <palabra> satisfecho </palabra>
+        </sentimientos_positivos>
+        <sentimientos_negativos>
+            <palabra> malo </palabra>
+            <palabra> pésimo </palabra>
+            <palabra> triste </palabra>
+            <palabra> molesto </palabra>
+            <palabra> decepcionado </palabra>
+            <palabra> enojo </palabra>
+        </sentimientos_negativos>
+        <empresas_analizar>
+            <empresa>
+                <nombre> USAC </nombre>
+                <servicio nombre="inscripción">
+                    <alias> inscribí </alias>
+                    <alias> inscrito </alias>
+                </servicio>
+                <servicio nombre="asignación">
+                    <alias> asignado </alias>
+                </servicio>
+                <servicio nombre="graduación"></servicio>
+            </empresa>
+            <empresa>
+                <nombre> BANCO INDUSTRIAL </nombre>
+                <servicio nombre="deposito">
+                    <alias> deposite </alias>
+                    <alias> depositare </alias>
+                </servicio>
+                <servicio nombre="retiro">
+                    <alias> retire </alias>
+                </servicio>
+                <servicio nombre="asesorar">
+                    <alias> asesoramiento </alias>
+                    <alias> asesore </alias>
+                </servicio>
+            </empresa>
+        </empresas_analizar>
+    </diccionario>
+    <lista_mensajes>
+        <mensaje> 
+            Lugar y fecha: Guatemala, 01/04/2022 15:01 Usuario: map0001@usac.edu Red social: Twitter El servicio en la USAC para inscripción fue muy bueno y me siento muy satisfecho. 
+        </mensaje>
+        <mensaje> 
+            Lugar y fecha: Guatemala, 01/04/2022 15:20 Usuario: map0002@usac.edu Red social: Facebook Hoy me inscribí en la USAC, no encontré parqueo e inicié molesto mi gestión, luego tuve que hacer cola y me indicaron que era la cola incorrecta, esto me enojó mucho y mejor me fui. 
+        </mensaje>
+        <mensaje> 
+            Lugar y fecha: Guatemala, 01/04/2022 15:43 Usuario: map0003@usac.edu Red social: WhatsApp Ya estoy inscrito en la USAC, pague en el BANCO INDUSTRIAL, el proceso fue muy bueno, pero al salir, mi carro tenía pinchadas las llantas, esto me preocupó y me fui decepcionado. 
+        </mensaje>
+        <mensaje> 
+            Lugar y fecha: Guatemala, 02/03/2022 10:45 Usuario: map0004 Red social: Twitter Ayer retire dinero del BANCO INDUSTRIAL, el proceso fue muy bueno, pero al salir, mi carro tenía pinchadas las llantas, esto me preocupó y me fui molesto. 
+        </mensaje>
+        <mensaje> 
+            Lugar y fecha: Guatemala, 05/03/2022 14:32 Usuario: map0005@industrial.edu Red social: Facebook Hoy me asesoré con una persona del BANCO INDUSTRIAL, el proceso fue muy pésimo, esto me preocupó y me dio un gran enojo. 
+        </mensaje>
+    </lista_mensajes>
+</solicitud_clasificacion>
