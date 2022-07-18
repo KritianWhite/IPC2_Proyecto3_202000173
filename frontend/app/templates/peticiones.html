@@ -1,0 +1,108 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Proyecto 3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <style>
+        .Titulo {
+            padding: 1em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -400%)
+        }
+        
+        .archivos {
+            width: 500px;
+            height: 100;
+            position: relative;
+            padding: 1em;
+            position: absolute;
+            top: 55%;
+            left: 60%;
+            margin-right: -50%;
+            transform: translate(-115%, -200%)
+        }
+        
+        .textarea {
+            width: 300px;
+            height: 800px;
+            position: relative;
+            padding: 1em;
+            position: absolute;
+            top: 10%;
+            left: 35%;
+            margin-right: -50%;
+            transform: translate(-60%, -1%)
+        }
+        
+        .textarea2 {
+            width: 300px;
+            height: 800px;
+            position: relative;
+            padding: 1em;
+            position: absolute;
+            top: 10%;
+            left: 60%;
+            margin-right: -50%;
+            transform: translate(-5%, -1%)
+        }
+    </style>
+</head>
+
+<header>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+            </div>
+            <h1><a class="logo">Peticiones</h1>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="{% url 'index' %}"><span class="fa fa-home mr-3"></span> Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'consultar' %}"><span class="fa fa-user mr-3"></span> Consultar datos</a>
+                </li>
+                <li>
+                    <a href="{% url 'clasificar-por-fecha' %}"><span class="fa fa-sticky-note mr-3"></span> Resumen de clasificacion por fecha</a>
+                </li>
+                <li>
+                    <a href="{% url 'resumen-por-rango' %}"><span class="fa fa-sticky-note mr-3"></span> Resumen por rango de fechas</a>
+                </li>
+                <li>
+                    <a href="{% url 'reportes' %}"><span class="fa fa-paper-plane mr-3"></span> Reportes en pdf</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-paper-plane mr-3"></span> Prueba de mensaje</a>
+                </li>
+                </ul>
+
+        </nav>
+
+
+        <main role="main">
+            {% block content %} {% endblock %}
+        </main>
+        <script src="../static/js/crearReporte.js"></script>
+        <script src="../static/js/jquery.min.js"></script>
+        <script src="../static/js/popper.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/main.js"></script>
+    </div>
+
+</header>

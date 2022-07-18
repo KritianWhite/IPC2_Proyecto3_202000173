@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<solicitud_clasificacion>
+ <diccionario> 
+    <sentimientos_positivos> 
+        <palabra> buen </palabra>
+        <palabra> bien </palabra>
+        <palabra> agradado </palabra>
+        <palabra> deliciosas </palabra>
+        <palabra> baratas </palabra>
+        <palabra> ricas </palabra>
+        <palabra> barato </palabra>
+        <palabra> rápido </palabra>
+        <palabra> excelente </palabra>
+    </sentimientos_positivos>
+    <sentimientos_negativos> 
+        <palabra> terrible </palabra>
+        <palabra> mala </palabra>
+        <palabra> mal </palabra>
+        <palabra> caro </palabra>
+        <palabra> no </palabra>
+    </sentimientos_negativos>
+    <empresas_analizar> 
+        <empresa> 
+            <nombre> McDonals </nombre>
+            <servicio nombre="servicio"> 
+                <alias> sirvieron </alias>
+                <alias> servir </alias>
+                <alias> sirve </alias>
+            </servicio>            
+        </empresa>
+        <empresa> 
+            <nombre> Burguer  King </nombre>
+            <servicio nombre="Cobrar"> 
+                <alias> cobran </alias>
+            </servicio>
+        </empresa>
+        <empresa> 
+            <nombre> Carls Jr </nombre>
+            <servicio nombre="AtEnCiOn"> 
+                <alias> atender </alias>
+                <alias> atendieron </alias>
+                <alias> atienden </alias>
+            </servicio>
+        </empresa>
+    </empresas_analizar>
+ </diccionario>
+ <lista_mensajes>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 24/04/2022 10:57 Usuario: Kitty_cat88 Red social: Instagram Buen serv0icio por parte de McDonals, por primera vez me sentí agradado en el lugar a donde fuí, me sirvieron de buena manera.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: EEUU, 26/04/2022 13:15 Usuario: Soyyo#2 Red social: Facebook Las hambuguesas de Carls Jr son deliciosas, pero si buscan algo más barato, les recomiendo Burguer King, allí las hamburguesas son baratas y ricas.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Mexico, 01/04/2022 15:43 Usuario: @chilero_123 Red social: Twitter Terrible servicio en Burguer King zona 6, mi comida ya estaba fría y me lleve una mala experiencia además los cajeros cobran muy lento.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 01/04/2022 15:43 Usuario: carne_asada_25 Red social: Facebook Me pidieron mi opinión sobre mi restaurante favorito: Pienso que McDonals sirve rápido y la comida esta bien. Burguer King no me gusta para nada, creo que la comida es de mala calidad. Estas de acuerdo?
+    </mensaje>
+ </lista_mensajes>
+</solicitud_clasificacion>

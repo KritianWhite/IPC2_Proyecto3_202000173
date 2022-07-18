@@ -1,0 +1,172 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Proyecto 3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <style>
+        .Titulo {
+            padding: 1em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -400%)
+        }
+        
+        .archivos {
+            width: 500px;
+            height: 100;
+            position: relative;
+            padding: 1em;
+            position: absolute;
+            top: 55%;
+            left: 60%;
+            margin-right: -50%;
+            transform: translate(-115%, -200%)
+        }
+        
+        .textarea {
+            width: 300px;
+            height: 800px;
+            position: relative;
+            padding: 1em;
+            position: absolute;
+            top: 10%;
+            left: 35%;
+            margin-right: -50%;
+            transform: translate(-60%, -1%)
+        }
+        
+        .textarea2 {
+            width: 300px;
+            height: 800px;
+            position: relative;
+            padding: 1em;
+            position: absolute;
+            top: 10%;
+            left: 60%;
+            margin-right: -50%;
+            transform: translate(-5%, -1%)
+        }
+    </style>
+</head>
+
+<header>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+            </div>
+            <h1><a class="logo">Reportes</h1>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="{% url 'index' %}"><span class="fa fa-home mr-3"></span> Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'consultar' %}"><span class="fa fa-user mr-3"></span> Reporte 1</a>
+                </li>
+                <li>
+                    <a href="{% url 'reporte2' %}"><span class="fa fa-sticky-note mr-3"></span> Reporte 2</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-sticky-note mr-3"></span> Reporte 3</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-paper-plane mr-3"></span> Reporte 4</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-paper-plane mr-3"></span> Prueba de mensaje</a>
+                </li>
+                </ul>
+
+        </nav>
+
+        <div class="Titulo">
+            <h1 style="text-align: center;"> Clasificación por fecha </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="card text-center">
+                    <div class="card-header ">
+                        <h5 class="card-title">Seleccion la fecha que deseas ver</h5>
+                        <form action="/clasificar-por-fecha/" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <select class="form-select" id='empresa' name='empresa' aria-label="Default select example">
+            <option value = "todas" selected>Todas las empresas</option>
+            {% for empresa in empresas %}
+            <option value = "{{ empresa }}"> {{ empresa }} </option>
+            {% endfor %}
+        </select>
+                            <label for="date">Introduce la fecha:</label>
+                            <input type="date" id="date" name="date">
+                            <button type="submit" class="btn btn-primary">Ver mensajes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Mensajes de la fecha {{ fecha }}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-wrap">
+                            <table class="table">
+                                <thead class="thead-primary">
+                                    <tr>
+                                        <th>Empresa</th>
+                                        <th>Cantidad mensajes positivos </th>
+                                        <th>Cantidad mensajes negativos</th>
+                                        <th>Cantidad mensajes neutros</th>
+                                        <th>Cantidad total de mensajes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in Listado %}
+                                    <tr>
+                                        <th scope="row">{{ i.nombre }}</th>
+                                        <td>{{ i.positivos }}</td>
+                                        <td>{{ i.negativos }}</td>
+                                        <td>{{ i.neutros }}</td>
+                                        <td>{{ i.total }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="../static/js/jquery.min.js"></script>
+        <script src="../static/js/popper.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/main.js"></script>
+        <script src="../static/Tabla/js/jquery.min.js"></script>
+        <script src="../static/Tabla/js/popper.js"></script>
+        <script src="../static/Tabla/js/bootstrap.min.js"></script>
+        <script src="../static/Tabla/js/main.js"></script>
+    </div>
+
+</header>
+
+
+</html>

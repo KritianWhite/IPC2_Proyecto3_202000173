@@ -1,0 +1,20 @@
+{% extends "peticiones.html" %} {% block content %}
+
+<div class="Titulo">
+    <h1 style="text-align: center;"> Consultar Datos</h1>
+</div>
+<form action="/cargar/" method="POST" enctype="multipart/form-data">
+
+    <div class="textarea ">
+        <p>Entrada:</p>
+        <textarea name="textarea_1" id="fileOutput" rows="20" cols="70 ">{{entrada}}</textarea>
+        <!--  <button onclick="envio() " style="width: 150px; " class="boton5 ">Envio</button>     -->
+    </div>
+
+    <div class="textarea2 ">
+        <p>Respuesta:</p>
+        <textarea name="textarea_2" id="fileOutput" rows="20" cols="70 ">{{salida}}</textarea>
+        <!--  <button onclick="recibir() " style="width: 150px; " class="boton6 ">Recibir</button> -->
+    </div>
+</form>
+{% endblock content %}

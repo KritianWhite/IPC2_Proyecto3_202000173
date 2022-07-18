@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="Titulo">
+    <h1 style="text-align: center;"> Carga Masiva </h1>
+</div>
+<form action="/carga/" method="POST" enctype="multipart/form-data">
+    <div class="archivos">
+
+        {% csrf_token %}
+        <label for="files">Cargar archivo XML</label>
+        <p></p>
+        <input class="form-control" type="file" id="fileInput" name="file1" accept=".xml" onchange="processFiles(this.files)">
+        </input>
+        <p></p>
+        <button type="submit" id="envioboton " style="width: 150px; " class="btn btn-primary ">Enviar</button>
+    </div>
+
+    <div class="textarea ">
+        <p>Entrada:</p>
+        {% if content %}
+        <textarea name="textarea_1" id="fileOutput" rows="20" cols="70 ">{{content}}</textarea>{% else %}
+        <textarea name="textarea_1" id="fileOutput" rows="20" cols="70 "></textarea> {% endif %}
+        <!--  <button onclick="envio() " style="width: 150px; " class="boton5 ">Envio</button>     -->
+    </div>
+
+    <div class="textarea2 ">
+        <p>Salida:</p>
+        {% if content %}
+        <textarea name="textarea_2" id="fileOutput" rows="20" cols="70 ">{{response}}</textarea>{% else %}
+        <textarea name="textarea_2" id="fileOutput" rows="20" cols="70 "></textarea> {% endif %}
+        <!--  <button onclick="recibir() " style="width: 150px; " class="boton6 ">Recibir</button> -->
+    </div>
+</form>
+{% endblock content %}

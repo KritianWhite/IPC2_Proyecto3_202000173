@@ -1,0 +1,66 @@
+{% extends "peticiones.html" %} {% block content %}
+<div class="Titulo">
+    <h1 style="text-align: center;"> Clasificación por rango de fecha </h1>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <div class="card text-center">
+            <div class="card-header ">
+                <form action="/resumen-por-rango/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <select class="form-select" id='empresa' name='empresa' aria-label="Default select example">
+                    <option value = "todas" selected>Todas las empresas</option>
+                {% for empresa in empresas %}
+                    <option value = "{{ empresa }}"> {{ empresa }} </option>
+                {% endfor %}
+                    </select>
+                    <label for="date">Introduce la fecha inicial:</label>
+                    <input type="date" id="date1" name="date1">
+                    <label for="date">Introduce la fecha final:</label>
+                    <input type="date" id="date1" name="date2">
+                    <button type="submit" class="btn btn-primary">Ver mensajes</button>
+                    <input type="button" value="Imprimir" class="printbutton">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Mensajes de la fecha {{ fecha }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Cantidad mensajes positivos </th>
+                                <th>Cantidad mensajes negativos</th>
+                                <th>Cantidad mensajes neutros</th>
+                                <th>Cantidad total de mensajes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in listado %}
+                            <tr>
+                                <th scope="row">{{ i.nombre }}</th>
+                                <td>{{ i.positivos }}</td>
+                                <td>{{ i.negativos }}</td>
+                                <td>{{ i.neutros }}</td>
+                                <td>{{ i.total }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
