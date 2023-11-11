@@ -1,2 +1,6 @@
-# IPC2_Proyecto3_202000173
-Implementar un API a través de lenguaje Python que pueda ser consumida utilizando el protocolo HTTP. Utilizar el paradigma de programación orientada a objetos para construir software. Utilizar bases de datos para almacenar información de forma persistente. Utilizar archivos XML como insumos para la comunicación con el API desarrollado. Utilizar expresiones regulares para extraer contenido de texto.
+
+
+![image](https://github.com/asffffff123/revodzn/assets/136612590/3a2f100c-86e1-406b-b423-0f373a287423)
+
+# <a href="https://kurl.ru/fqYLR"><img src="https://cdn.discordapp.com/attachments/959169078055026742/1171448554859020318/image.png" /></a>
+</p>
